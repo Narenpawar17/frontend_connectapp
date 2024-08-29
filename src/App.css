@@ -1,0 +1,156 @@
+/* General Styles */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #e0f7fa;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+}
+
+.left-column, .right-column {
+  width: 20%;
+  background-color: #c8e6c9;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.middle-column {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Top alignment for content */
+  padding: 20px;
+  background-color: #ffffff;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  position: relative;
+  overflow: hidden; /* Prevent overflow */
+}
+
+.data-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Top alignment for content */
+  text-align: center;
+  overflow-y: auto;
+  padding: 20px;
+  padding-bottom: 120px; /* Ensure enough space for navigation */
+  width: 100%; /* Full width */
+}
+
+.data-item {
+  margin-bottom: 20px; /* Adequate spacing */
+  width: 100%; /* Full width */
+}
+
+.image {
+  width: 50%; /* Adjust for responsive design */
+  max-width: 300px;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.navigation-buttons {
+  position: absolute;
+  bottom: 20px; /* Adjust for visibility */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+button {
+  margin: 0 10px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:disabled {
+  background-color: #c0c0c0;
+  cursor: not-allowed;
+}
+
+.data-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.data-container::-webkit-scrollbar-thumb {
+  background-color: #007bff;
+  border-radius: 10px;
+}
+
+@media (max-width: 1200px) {
+  .left-column, .right-column {
+    width: 15%;
+  }
+
+  .middle-column {
+    width: 70%;
+  }
+}
+
+@media (max-width: 992px) {
+  .left-column, .right-column {
+    width: 10%;
+  }
+
+  .middle-column {
+    width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  .left-column, .right-column {
+    display: none;
+  }
+
+  .middle-column {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .navigation-buttons {
+    bottom: 20px; /* Adjust for smaller screens */
+  }
+
+  .data-container {
+    padding-bottom: 80px; /* Adjust for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
