@@ -22,7 +22,7 @@ const TagSearchPage = () => {
     const token = localStorage.getItem('token');
 
     try {
-      const response = await axios.get(`https://backendconnectapp.onrender.com/api/users/searchtag/${encodeURIComponent(searchTag.trim())}`, {
+      const response = await axios.get(`https://connectbackend17-0ohzrims.b4a.run/api/users/searchtag/${encodeURIComponent(searchTag.trim())}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
 

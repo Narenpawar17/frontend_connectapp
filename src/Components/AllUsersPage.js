@@ -22,7 +22,7 @@ const AllUsersPage = () => {
         throw new Error('Username not found in session storage');
       }
 
-      const { data } = await axios.get(`https://backendconnectapp.onrender.com/api/users/${username}`, {
+      const { data } = await axios.get(`https://connectbackend17-0ohzrims.b4a.run/api/users/${username}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       });
 
@@ -37,7 +37,7 @@ const AllUsersPage = () => {
   const fetchUsers = async (currentUserData) => {
     setLoading(true);
     try {
-      const { data: usersData } = await axios.get('https://backendconnectapp.onrender.com/api/all-users', {
+      const { data: usersData } = await axios.get('https://connectbackend17-0ohzrims.b4a.run/api/all-users', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       });
 
@@ -84,7 +84,7 @@ const AllUsersPage = () => {
 
     try {
       const { data } = await axios.post(
-        'https://backendconnectapp.onrender.com/api/users/follow',
+        'https://connectbackend17-0ohzrims.b4a.run/api/users/follow',
         { userId },
         { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }
       );
@@ -115,7 +115,7 @@ const AllUsersPage = () => {
 
     try {
       const { data } = await axios.post(
-        'https://backendconnectapp.onrender.com/api/users/unfollow',
+        'https://connectbackend17-0ohzrims.b4a.run/api/users/unfollow',
         { userId },
         { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }
       );

@@ -13,7 +13,7 @@ const LoginPage = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://backendconnectapp.onrender.com/api/login', {
+      const response = await axios.post('https://connectbackend17-0ohzrims.b4a.run/api/login', {
         email,
         password
       });

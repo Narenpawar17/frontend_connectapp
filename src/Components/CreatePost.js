@@ -27,7 +27,7 @@ const CreatePost = () => {
     }
 
     try {
-      await axios.post('https://backendconnectapp.onrender.com/api/posts/create', {
+      await axios.post('https://connectbackend17-0ohzrims.b4a.run/api/posts/create', {
         name,
         address,
         phone,

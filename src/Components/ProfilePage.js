@@ -33,7 +33,7 @@ const ProfilePage = () => {
         return;
       }
 
-      const response = await axios.get(`https://backendconnectapp.onrender.com/api/users/${user.username}`, {
+      const response = await axios.get(`https://connectbackend17-0ohzrims.b4a.run/api/users/${user.username}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -68,7 +68,7 @@ const ProfilePage = () => {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.post('https://backendconnectapp.onrender.com/api/users/uploadProfilePicture', formData, {
+      const response = await axios.post('https://connectbackend17-0ohzrims.b4a.run/api/users/uploadProfilePicture', formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'multipart/form-data',
@@ -98,7 +98,7 @@ const ProfilePage = () => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.put(
-        `https://backendconnectapp.onrender.com/api/users/${user.username}/update-biotag`,
+        `https://connectbackend17-0ohzrims.b4a.run/api/users/${user.username}/update-biotag`,
         {
           bio: newBio,
           tags: newTags.split(',').map((tag) => tag.trim()).join(', '),

@@ -17,7 +17,7 @@ const Settings = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await axios.put('https://backendconnectapp.onrender.com/api/user/change-email', { newEmail: email }, {
+      const response = await axios.put('https://connectbackend17-0ohzrims.b4a.run/api/user/change-email', { newEmail: email }, {
         headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
       });
 
@@ -39,7 +39,7 @@ const Settings = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      await axios.put('https://backendconnectapp.onrender.com/api/user/change-password', { currentPassword: password, newPassword: newPassword }, {
+      await axios.put('https://connectbackend17-0ohzrims.b4a.run/api/user/change-password', { currentPassword: password, newPassword: newPassword }, {
         headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
       });
 

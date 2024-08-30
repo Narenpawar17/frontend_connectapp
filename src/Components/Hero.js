@@ -18,7 +18,7 @@ const Hero = () => {
       setLoading(true);
       try {
         const response = await axios.get(
-          `https://backendconnectapp.onrender.com/posts?limit=${limit}&offset=${(page - 1) * limit}`
+          `https://connectbackend17-0ohzrims.b4a.run/posts?limit=${limit}&offset=${(page - 1) * limit}`
         );
 
         const newPosts = response?.data?.filter(

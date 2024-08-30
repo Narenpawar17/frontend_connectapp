@@ -18,7 +18,7 @@ const SignupPage = () => {
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('https://backendconnectapp.onrender.com/api/signup', {
+      await axios.post('https://connectbackend17-0ohzrims.b4a.run/api/signup', {
         firstName,
         middleName,
         lastName,
