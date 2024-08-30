@@ -18,7 +18,7 @@ const PostUpdated = () => {
       const token = localStorage.getItem('token'); // Retrieve token from localStorage
 
       try {
-        const response = await axios.get(`https://connectbackend17-0ohzrims.b4a.run/api/posts/${postId}`, {
+        const response = await axios.get(`https://backendconnectapp.onrender.com/api/posts/${postId}`, {
           headers: {
             'Authorization': `Bearer ${token}`, // Include token in Authorization header
           },
@@ -43,7 +43,7 @@ const PostUpdated = () => {
     const token = localStorage.getItem('token'); // Retrieve token from localStorage
 
     try {
-      await axios.put(`https://connectbackend17-0ohzrims.b4a.run/api/posts/${postId}`, { name, address, phone, imgUrl }, {
+      await axios.put(`https://backendconnectapp.onrender.com/api/posts/${postId}`, { name, address, phone, imgUrl }, {
         headers: {
           'Authorization': `Bearer ${token}`, // Include token in Authorization header
         },

@@ -14,7 +14,7 @@ const UpdatePost = () => {
       const token = localStorage.getItem('token'); // Retrieve token from localStorage
 
       try {
-        const response = await axios.get(`https://connectbackend17-0ohzrims.b4a.run/api/posts/owner/${user?.email}`, {
+        const response = await axios.get(`https://backendconnectapp.onrender.com/api/posts/owner/${user?.email}`, {
           headers: {
             'Authorization': `Bearer ${token}`, // Include token in Authorization header
           },

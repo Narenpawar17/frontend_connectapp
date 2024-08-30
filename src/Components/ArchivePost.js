@@ -19,7 +19,7 @@ const ArchivePost = () => {
       }
 
       try {
-        const response = await axios.get(`https://connectbackend17-0ohzrims.b4a.run/api/posts/archived/owner/${user?.email}`, {
+        const response = await axios.get(`https://backendconnectapp.onrender.com/api/posts/archived/owner/${user?.email}`, {
           headers: {
             'Authorization': `Bearer ${token}`,
           },
@@ -46,7 +46,7 @@ const ArchivePost = () => {
     }
 
     try {
-      await axios.patch(`https://connectbackend17-0ohzrims.b4a.run/api/posts/archive/${postId}`, { archived: false }, {
+      await axios.patch(`https://backendconnectapp.onrender.com/api/posts/archive/${postId}`, { archived: false }, {
         headers: {
           'Authorization': `Bearer ${token}`,
         },

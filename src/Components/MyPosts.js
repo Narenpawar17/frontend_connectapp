@@ -10,7 +10,7 @@ const MyPosts = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await axios.get(`https://connectbackend17-0ohzrims.b4a.run/api/posts/owner/${user?.email}`);
+        const response = await axios.get(`https://backendconnectapp.onrender.com/api/posts/owner/${user?.email}`);
         setPosts(response.data);
       } catch (error) {
         console.error('Error fetching posts:', error);
@@ -31,7 +31,7 @@ const MyPosts = () => {
       return;
     }
     try {
-      await axios.patch(`https://connectbackend17-0ohzrims.b4a.run/api/posts/archive/${postId}`, { archived: true }, {
+      await axios.patch(`https://backendconnectapp.onrender.com/api/posts/archive/${postId}`, { archived: true }, {
         headers: {
           'Authorization': `Bearer ${token}` // Include token in Authorization header
         }

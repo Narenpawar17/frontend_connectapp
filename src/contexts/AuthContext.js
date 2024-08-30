@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await axios.get('https://connectbackend17-0ohzrims.b4a.run/api/user');
+        const response = await axios.get('https://backendconnectapp.onrender.com/api/user');
         // console.log('API Response:', response.data); // Check the complete response structure
         if (response.data.user) {
           setUser(response.data.user);

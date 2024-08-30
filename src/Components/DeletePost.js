@@ -10,7 +10,7 @@ const DeletePost = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await axios.get(`https://connectbackend17-0ohzrims.b4a.run/api/posts/owner/${user?.email}`, {
+        const response = await axios.get(`https://backendconnectapp.onrender.com/api/posts/owner/${user?.email}`, {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`, // Include token in Authorization header
           },
@@ -39,7 +39,7 @@ const DeletePost = () => {
     }
 
     try {
-      await axios.delete(`https://connectbackend17-0ohzrims.b4a.run/api/posts/${postId}`, {
+      await axios.delete(`https://backendconnectapp.onrender.com/api/posts/${postId}`, {
         headers: {
           'Authorization': `Bearer ${token}`, // Include token in Authorization header
         },
