@@ -19,7 +19,7 @@ const RightSidebar = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 1500  // Change slide every 1.5 seconds
+    autoplaySpeed: 2000  // Change slide every 2 seconds
   };
 
   const handleLogout = () => {
