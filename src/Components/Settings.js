@@ -57,7 +57,7 @@ const Settings = () => {
       <div className="flex items-center justify-between p-4 bg-gray-800">
         <button
           onClick={() => navigate('/')}
-          className="px-4 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700"
+          className="px-4 py-2 mb text-white bg-blue-600 rounded-md hover:bg-blue-700"
         >
           Home
         </button>
@@ -67,7 +67,7 @@ const Settings = () => {
         <div className="w-full max-w-md">
           <form onSubmit={handleEmailChange} className="p-6 mb-6 bg-gray-800 rounded-lg shadow-lg">
             <h2 className="mb-4 text-2xl font-semibold">Change Email</h2>
-            <div className="mb-4">
+            <div className="mb-3">
               <label htmlFor="email" className="block mb-2 text-sm font-medium">New Email</label>
               <input
                 type="email"
@@ -76,13 +76,13 @@ const Settings = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="New Email"
                 required
-                className="w-full px-3 py-2 text-white bg-gray-700 border border-gray-600 rounded-md"
+                className="w-full px-3 py-1 text-white bg-gray-700 border border-gray-600 rounded-md"
               />
             </div>
             <button
               type="submit"
               disabled={loading}
-              className="w-full px-4 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700"
+              className="w-full px-4 py-1 text-white bg-blue-600 rounded-md hover:bg-blue-700"
             >
               Change Email
             </button>
@@ -99,7 +99,7 @@ const Settings = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Current Password"
                 required
-                className="w-full px-3 py-2 text-white bg-gray-700 border border-gray-600 rounded-md"
+                className="w-full px-3 py-1 text-white bg-gray-700 border border-gray-600 rounded-md"
               />
             </div>
             <div className="mb-4">
@@ -111,13 +111,13 @@ const Settings = () => {
                 onChange={(e) => setNewPassword(e.target.value)}
                 placeholder="New Password"
                 required
-                className="w-full px-3 py-2 text-white bg-gray-700 border border-gray-600 rounded-md"
+                className="w-full px-3 py-1 text-white bg-gray-700 border border-gray-600 rounded-md"
               />
             </div>
             <button
               type="submit"
               disabled={loading}
-              className="w-full px-4 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700"
+              className="w-full px-4 py-1 text-white bg-blue-600 rounded-md hover:bg-blue-700"
             >
               Change Password
             </button>

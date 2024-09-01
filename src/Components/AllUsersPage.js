@@ -41,10 +41,8 @@ const AllUsersPage = () => {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       });
 
-      // Filter out the current user from the list of users
       const filteredUsers = usersData.filter((user) => user.username !== currentUserData.username);
 
-      // Fetch profile images from localStorage and update users with profile images
       const usersWithImages = filteredUsers.map((user) => {
         const localStorageKey = `profileImage_${user.username}`;
         const localProfileImage = localStorage.getItem(localStorageKey);
@@ -58,13 +56,12 @@ const AllUsersPage = () => {
 
       setUsers(usersWithImages);
 
-      // Initialize button states
       if (currentUserData && currentUserData.following) {
         const initialButtonState = {};
         usersWithImages.forEach((user) => {
           initialButtonState[user._id] = currentUserData.following.includes(user._id)
-            ? { followDisabled: true, unfollowDisabled: false }
-            : { followDisabled: false, unfollowDisabled: true };
+            ? { isFollowing: true }
+            : { isFollowing: false };
         });
         setButtonState(initialButtonState);
       }
@@ -77,11 +74,6 @@ const AllUsersPage = () => {
   };
 
   const handleFollow = async (userId) => {
-    setButtonState((prevState) => ({
-      ...prevState,
-      [userId]: { followDisabled: true, unfollowDisabled: false },
-    }));
-
     try {
       const { data } = await axios.post(
         'https://backendconnectapp.onrender.com/api/users/follow',
@@ -92,7 +84,7 @@ const AllUsersPage = () => {
       toast.success('Followed successfully!');
       setButtonState((prevState) => ({
         ...prevState,
-        [userId]: { followDisabled: true, unfollowDisabled: false },
+        [userId]: { isFollowing: true },
       }));
 
       updateFollowersCount(userId, data.updatedFollowersCount);
@@ -100,19 +92,10 @@ const AllUsersPage = () => {
     } catch (error) {
       console.error('Error following user:', error);
       toast.error('Failed to follow user.');
-      setButtonState((prevState) => ({
-        ...prevState,
-        [userId]: { ...prevState[userId], followDisabled: false },
-      }));
     }
   };
 
   const handleUnfollow = async (userId) => {
-    setButtonState((prevState) => ({
-      ...prevState,
-      [userId]: { followDisabled: false, unfollowDisabled: true },
-    }));
-
     try {
       const { data } = await axios.post(
         'https://backendconnectapp.onrender.com/api/users/unfollow',
@@ -123,7 +106,7 @@ const AllUsersPage = () => {
       toast.success('Unfollowed successfully!');
       setButtonState((prevState) => ({
         ...prevState,
-        [userId]: { followDisabled: false, unfollowDisabled: true },
+        [userId]: { isFollowing: false },
       }));
 
       updateFollowersCount(userId, data.updatedFollowersCount);
@@ -131,10 +114,6 @@ const AllUsersPage = () => {
     } catch (error) {
       console.error('Error unfollowing user:', error);
       toast.error('Failed to unfollow user.');
-      setButtonState((prevState) => ({
-        ...prevState,
-        [userId]: { ...prevState[userId], unfollowDisabled: false },
-      }));
     }
   };
 
@@ -164,49 +143,36 @@ const AllUsersPage = () => {
 
   return (
     <div className="flex flex-col min-h-screen p-4 -mt-10 -ml-10 -mr-10 text-white bg-zinc-900">
-      <h1 className="mb-10 text-2xl font-bold">All Users</h1>
+      <h1 className="mb-10 text-2xl font-bold text-center">All Users</h1>
       {loading ? (
-        <p>Loading...</p>
+        <p className="text-center">Loading...</p>
       ) : (
-        <div className="flex flex-col space-y-6">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {users.map((user) => (
-            <div key={user._id} className="max-w-2xl p-6 mx-auto bg-black border border-gray-800 rounded-lg shadow-lg">
-              <div className="flex items-center space-x-6">
-                <div className="w-16 h-16 overflow-hidden rounded-full">
-                  <img
-                    src={user.profileImage}
-                    alt={user.username}
-                    className="object-cover w-full h-full"
-                  />
-                </div>
-                <div className="flex-grow">
-                  <h2 className="text-xl font-semibold">{user.username}</h2>
-                </div>
-                <div className="flex space-x-4">
-                  <button
-                    className={`px-6 py-2 rounded-full transition-colors duration-300 ${
-                      buttonState[user._id]?.followDisabled
-                        ? 'bg-blue-300 text-blue-100 cursor-not-allowed'
-                        : 'bg-blue-500 text-white hover:bg-blue-600'
-                    }`}
-                    onClick={() => handleFollow(user._id)}
-                    disabled={buttonState[user._id]?.followDisabled}
-                  >
-                    Follow
-                  </button>
-                  <button
-                    className={`px-6 py-2 rounded-full transition-colors duration-300 ${
-                      buttonState[user._id]?.unfollowDisabled
-                        ? 'bg-red-300 text-red-100 cursor-not-allowed'
-                        : 'bg-red-500 text-white hover:bg-red-600'
-                    }`}
-                    onClick={() => handleUnfollow(user._id)}
-                    disabled={buttonState[user._id]?.unfollowDisabled}
-                  >
-                    Unfollow
-                  </button>
-                </div>
+            <div key={user._id} className="flex flex-col items-center p-6 space-y-4 bg-gray-800 border border-gray-700 rounded-lg shadow-lg">
+              <div className="w-24 h-24 overflow-hidden rounded-full">
+                <img
+                  src={user.profileImage}
+                  alt={user.username}
+                  className="object-cover w-full h-full"
+                />
               </div>
+              <h2 className="text-xl font-semibold text-center">{user.username}</h2>
+              {buttonState[user._id]?.isFollowing ? (
+                <button
+                  className="px-6 py-2 text-white transition-colors duration-300 bg-red-500 rounded-full hover:bg-red-600"
+                  onClick={() => handleUnfollow(user._id)}
+                >
+                  Unfollow
+                </button>
+              ) : (
+                <button
+                  className="px-6 py-2 text-white transition-colors duration-300 bg-blue-500 rounded-full hover:bg-blue-600"
+                  onClick={() => handleFollow(user._id)}
+                >
+                  Follow
+                </button>
+              )}
             </div>
           ))}
         </div>

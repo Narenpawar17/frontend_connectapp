@@ -84,7 +84,7 @@ const ArchivePost = () => {
                     {post.name}
                   </h2>
                   <p className="mb-2 text-sm text-gray-300">
-                    <span className="font-medium">Email:</span> <br /> {post.email}
+                    <span className="font-medium">Name:</span> <br /> {post.name}
                   </p>
                   <p className="mb-2 text-sm text-gray-300">
                     <span className="font-medium">Address:</span> <br /> {post.address}
@@ -97,9 +97,9 @@ const ArchivePost = () => {
               <div className="flex justify-between p-4 bg-gray-900 border-t border-gray-800">
                 <button
                   onClick={() => handleRemove(post._id)}
-                  className="px-4 py-2 text-gray-300 bg-red-600 rounded hover:text-white"
+                  className="px-4 py-2 text-gray-300 bg-blue-600 rounded hover:text-white"
                 >
-                  Remove
+                  Unarchive
                 </button>
               </div>
             </div>

@@ -29,9 +29,9 @@ const RightSidebar = () => {
 
   return (
     <div className="fixed top-0 right-0 flex flex-col justify-between w-64 h-screen text-white bg-black shadow-md">
-      <div className="p-6 border-b border-gray-800">
+      <div className="p-6 border-b border-gray-800 -py-10">
         <h2 className="mb-6 text-2xl font-bold">Sponsored</h2>
-        <div className="h-64 overflow-hidden">
+        <div className="overflow-hidden h-60">
           <Slider {...settings}>
             {picsumImages.map(img => (
               <div key={img.id} className="overflow-hidden bg-gray-800 rounded-lg shadow-md">
@@ -40,7 +40,7 @@ const RightSidebar = () => {
             ))}
           </Slider>
         </div>
-        <div className="mt-6">
+        <div className="mt-4">
           <h3 className="text-xl font-semibold">About the Sponsor</h3>
           <p className="mt-2 text-sm">
             We are proud to showcase our sponsors who help make this platform possible. 
@@ -48,7 +48,7 @@ const RightSidebar = () => {
           </p>
         </div>
       </div>
-      <div className="p-6 border-t border-gray-800">
+      <div className="p-6 mb-12 border-t border-gray-800">
         <div className="flex items-center space-x-3">
           <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" alt="Profile" className="w-12 h-12 border-2 border-gray-700 rounded-full" />
           <div>
@@ -61,6 +61,7 @@ const RightSidebar = () => {
         >
           Logout
         </button>
+        
       </div>
     </div>
   );

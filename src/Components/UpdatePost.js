@@ -60,7 +60,7 @@ const UpdatePost = () => {
                     {post.name}
                   </h2>
                   <p className="mb-2 text-sm text-gray-300">
-                    <span className="font-medium">Email:</span> <br /> {post.email}
+                    <span className="font-medium">Name:</span> <br /> {post.name}
                   </p>
                   <p className="mb-2 text-sm text-gray-300">
                     <span className="font-medium">Address:</span> <br /> {post.address}
@@ -77,7 +77,7 @@ const UpdatePost = () => {
                 <button className="text-gray-300 hover:text-white">Share</button>
                 <button
                   onClick={() => handleUpdate(post._id)}
-                  className="px-1 py-1 text-gray-300 bg-red-600 rounded-lg hover:text-white"
+                  className="px-1 py-1 text-gray-300 bg-blue-600 rounded-lg hover:text-white"
                 >
                   Update
                 </button>
