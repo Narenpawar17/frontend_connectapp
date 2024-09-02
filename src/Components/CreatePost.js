@@ -48,17 +48,19 @@ const CreatePost = () => {
 
   return (
     <div className="flex flex-col min-h-screen text-white bg-gray-900">
-      <div className="flex items-center justify-between p-4 bg-gray-800">
+      <div className="flex items-center justify-between p-4 bg-gray-800 shadow-lg">
         <button
           onClick={() => navigate('/')}
-          className="px-4 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700"
+          className="px-4 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700 transition duration-300"
         >
           Home
         </button>
+        <h1 className="text-2xl font-semibold">Create a New Post</h1>
+        <div />
       </div>
-      <div className="flex flex-col items-center flex-grow p-4">
-        <h1 className="mb-6 text-3xl font-bold">Create Post</h1>
-        <form onSubmit={handleSubmit} className="w-full max-w-md p-6 bg-gray-800 rounded-lg shadow-lg">
+      <div className="flex flex-col items-center flex-grow p-6 bg-gray-900">
+        <form onSubmit={handleSubmit} className="w-full max-w-lg p-8 bg-gray-800 rounded-lg shadow-lg">
+          <h2 className="mb-6 text-3xl font-bold text-center">New Post</h2>
           <div className="mb-4">
             <label htmlFor="name" className="block mb-2 text-sm font-medium">Name</label>
             <input
@@ -67,7 +69,8 @@ const CreatePost = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
-              className="w-full px-3 py-2 text-white bg-gray-700 border border-gray-600 rounded-md"
+              className="w-full px-3 py-2 text-white bg-gray-700 border border-gray-600 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              placeholder="Enter the name of the post"
             />
           </div>
           <div className="mb-4">
@@ -78,7 +81,8 @@ const CreatePost = () => {
               value={address}
               onChange={(e) => setAddress(e.target.value)}
               required
-              className="w-full px-3 py-2 text-white bg-gray-700 border border-gray-600 rounded-md"
+              className="w-full px-3 py-2 text-white bg-gray-700 border border-gray-600 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              placeholder="Enter the address"
             />
           </div>
           <div className="mb-4">
@@ -89,7 +93,8 @@ const CreatePost = () => {
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
               required
-              className="w-full px-3 py-2 text-white bg-gray-700 border border-gray-600 rounded-md"
+              className="w-full px-3 py-2 text-white bg-gray-700 border border-gray-600 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              placeholder="Enter the phone number"
             />
           </div>
           <div className="mb-6">
@@ -100,14 +105,15 @@ const CreatePost = () => {
               value={imgUrl}
               onChange={(e) => setImgUrl(e.target.value)}
               required
-              className="w-full px-3 py-2 text-white bg-gray-700 border border-gray-600 rounded-md"
+              className="w-full px-3 py-2 text-white bg-gray-700 border border-gray-600 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              placeholder="Enter the image URL"
             />
           </div>
           {loading && <p className="mb-4 text-blue-500">Creating post...</p>}
           {error && <p className="mb-4 text-red-500">{error}</p>}
           <button
             type="submit"
-            className="w-full px-4 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700"
+            className="w-full px-4 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700 transition duration-300"
           >
             Create Post
           </button>
